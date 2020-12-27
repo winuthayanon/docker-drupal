@@ -6,6 +6,7 @@ cd docker-drupal
 # edit file .env
 
 mkdir -p ./data/sites/default/files
+
 sudo chown www-data.www-data -R ./data/sites/default/*
 
 # edit file in data/sites/default/settings.php 
