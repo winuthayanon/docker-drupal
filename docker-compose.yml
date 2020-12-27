@@ -3,7 +3,7 @@ version: '3'
 services:
    drupal-db:
      container_name: ${DB_CONTAINER_NAME}
-     image: mariadb:${DB_IMAGE_TAG}
+     image: winuthayanon/mariadb:${DB_IMAGE_TAG}
      restart: unless-stopped
      volumes:
         - ${LOCAL_DB_DIR}:/var/lib/mysql
@@ -17,7 +17,7 @@ services:
      depends_on:
        - drupal-db
      container_name: ${APP_CONTAINER_NAME}
-     image: drupal:${APP_IMAGE_TAG}
+     image: winuthayanon/drupal:${APP_IMAGE_TAG}
      restart: unless-stopped
      volumes:
        - ${LOCAL_MODULES_DIR}:/var/www/html/modules
