@@ -1,6 +1,7 @@
 # docker-drupal
 # How to install
 git clone https://github.com/winuthayanon/docker-drupal
+
 cd docker-drupal
 # edit file .env
 
