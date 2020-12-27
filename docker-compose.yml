@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+   drupal-db:
+     container_name: ${DB_CONTAINER_NAME}
+     image: mariadb:${DB_IMAGE_TAG}
+     restart: unless-stopped
+     volumes:
+        - ${LOCAL_DB_DIR}:/var/lib/mysql
+     environment:
+       MYSQL_DATABASE: ${MYSQL_DATABASE}
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       MYSQL_USER: ${MYSQL_USER}
+       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+   drupal-app:
+     depends_on:
+       - drupal-db
+     container_name: ${APP_CONTAINER_NAME}
+     image: drupal:${APP_IMAGE_TAG}
+     restart: unless-stopped
+     volumes:
+       - ${LOCAL_MODULES_DIR}:/var/www/html/modules
+       - ${LOCAL_PROFILES_DIR}:/var/www/html/profiles
+       - ${LOCAL_SITES_DIR}:/var/www/html/sites
+       - ${LOCAL_SITES_DIR}:/var/www/html/themes
+     environment:
+       DRUPAL_TABLE_PREFIX: ${DRUPAL_TABLE_PREFIX}
+       VIRTUAL_HOST: ${VIRTUAL_HOST}
+       LETSENCRYPT_HOST: ${LETSENCRYPT_HOST}
+       LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+       MYSQL_DATABASE: ${MYSQL_DATABASE}
+       MYSQL_USER: ${MYSQL_USER}
+       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+       MYSQL_HOST: ${MYSQL_HOST}
+
+networks:
+    default:
+       external:
+         name: ${NETWORK}
