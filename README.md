@@ -9,8 +9,11 @@ sudo chown www-data.www-data -R ./data/sites/default/*
 
 # edit file in data/sites/default/settings.php 
 uncomment line 717-719
+
 $settings['trusted_host_patterns'] = [
+
        'drupal.yourdomain.com',
+       
 ];
 
 # start by this command-line
