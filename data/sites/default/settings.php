@@ -782,14 +782,3 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$databases['default']['default'] = array (
-  'database' => 'drupal_db',
-  'username' => 'drupal_user',
-  'password' => 'drupal_user_password',
-  'prefix' => '',
-  'host' => 'drupal-db-bp',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
-$settings['config_sync_directory'] = 'sites/default/files/config_xUSnI8cdUW3HjJy-xB1f-rbq9O9_NMUH8XmmSXW_OlTwGEnwPEGQ64W-cxW5UhZYK6Axrb21aA/sync';
