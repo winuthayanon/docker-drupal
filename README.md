@@ -5,15 +5,15 @@ git clone https://github.com/winuthayanon/docker-drupal
 cd docker-drupal
 # edit file .env
 
-mkdir -p ./data/sites/default/files
-
-sudo chown www-data.www-data -R ./data/sites/default/*
-
 # edit file in data/sites/default/settings.php 
 # uncomment line 717-719
 $settings['trusted_host_patterns'] = [
        'drupal.yourdomain.com',
 ];
+
+mkdir -p ./data/sites/default/files
+
+sudo chown www-data.www-data -R ./data/sites/default/*
 
 # start by this command-line
 docker-compose up -d
