@@ -36,4 +36,8 @@ docker-compose up -d
 
 # go to https://drupal.yourdomain.com/ to re-install again.
 
+# advanced Options
+# Host 
+# replace localhost to MYSQL_HOST as the .env file such as drupal-db
+
 # Good luck!
