@@ -22,4 +22,18 @@ docker-compose up -d
 docker-compose down
 
 # go to https://drupal.yourdomain.com/ to install
+
+# if you got the error An AJAX HTTP error occurred. HTTP Result Code: 502
+# follow this command-line
+
+docker-compose down
+
+sudo rm -rf data/db
+
+sudo rm -rf data/sites/default/files/*
+
+docker-compose up -d
+
+# go to https://drupal.yourdomain.com/ to re-install again.
+
 # Good luck!
